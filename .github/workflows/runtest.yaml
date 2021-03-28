@@ -13,8 +13,8 @@ jobs:
       run: |
         sudo pip3 install zkg
         sudo zkg config
-        #sudo zkg autoconfig
-        #sudo zkg config
+        sudo zkg autoconfig
+        sudo zkg config
     - name: Install Community ID package
       run: |
         sudo zkg install --force https://github.com/corelight/zeek-community-id || true
