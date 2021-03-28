@@ -1,0 +1,21 @@
+name: "Install Community ID package on top of brew-installed Zeek 4.0.0"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  runtest:
+    runs-on: macos-10.15
+    steps:
+    - name: Install Zeek via brew
+      run: brew install zeek
+    - name: Install/setup Zeek Package Manager
+      run: |
+        sudo pip3 install zkg
+        sudo zkg config
+        sudo zkg autoconfig
+        sudo zkg config
+    - name: Install Community ID package
+      run: |
+        sudo zkg install --force https://github.com/corelight/zeek-community-id
+        cat /Users/runner/.zkg/logs/zeek-community-id-build.log
