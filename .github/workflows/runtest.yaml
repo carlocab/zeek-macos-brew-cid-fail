@@ -17,5 +17,5 @@ jobs:
         sudo zkg config
     - name: Install Community ID package
       run: |
-        sudo zkg install --force https://github.com/corelight/zeek-community-id
+        sudo zkg install --force https://github.com/corelight/zeek-community-id || true
         cat /Users/runner/.zkg/logs/zeek-community-id-build.log
