@@ -3,16 +3,12 @@ name: "Install Community ID package on top of brew-installed Zeek 4.0.0"
 on:
   workflow_dispatch:
 
-env:
-  CPPFLAGS: "-isysroot/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
-  CXXFLAGS: "-isysroot/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
-  CFLAGS: "-isysroot/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
 jobs:
   runtest:
     runs-on: macos-11.0
     steps:
     - name: Install Zeek via brew
-      run: brew install zeek
+      run: brew install carlocab/personal/zeek-patched
     - name: Install/setup Zeek Package Manager
       run: |
         sudo pip3 install zkg
